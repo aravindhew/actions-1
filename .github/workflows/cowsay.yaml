@@ -14,7 +14,7 @@ jobs:
             - name: Generate ASCII report
               run: cowsay -f dragon  "I am the dragon reborn " >> dragon.txt
             - name: grep cowsay
-              run: greo -i "dragon" dragon.txt
+              run: grep -i "dragon" dragon.txt
             - name: cat dragon
               run : cat dragon.txt
             
