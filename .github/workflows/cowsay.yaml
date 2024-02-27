@@ -1,0 +1,20 @@
+name: My second  WorkFlow
+
+on: push 
+
+jobs:
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout
+              uses: actions/checkout@v4
+  
+            - name: install cowsay 
+              run: sudo apt-get install cowsay -y 
+            - name: Generate ASCII report
+              run: cowsay -f dragon  "I am the dragon reborn " >> dragon.txt
+            - name: grep cowsay
+              run: greo -i "dragon" dragon.txt
+            - name: cat dragon
+              run : cat dragon.txt
+            
