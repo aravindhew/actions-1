@@ -9,11 +9,10 @@ jobs:
             - name: checkout
               uses: actions/checkout@v4
   
-            - name: welcome message
-              run: echo "my first github actions from runner"
-
-            - name: list filessfdsdf
-              run: ls
-
-            - name: reading a file
-              run: cat README.md
+            - name: list and cat
+              run: |
+                echo "my first github actions from runner"
+                ls
+                cat README.md
+            - name: Generate ASCII report
+              run: cowsay -f dragon  "I am the dragon reborn " >> dragon.txt
