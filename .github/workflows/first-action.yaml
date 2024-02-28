@@ -60,3 +60,15 @@ jobs:
           ls
           cat README.md
 
+
+
+  variable_test:
+    runs-on: ubuntu-latest      
+    steps:
+     - name: checkout    
+       uses: actions/checkout@v4
+     - name: echo vars
+       run: echo  "this is the value from ${{ vars.test }}"
+     - name: echo vars in different method
+       run: echo  "this is the value from " ${{ vars.test }}
+
