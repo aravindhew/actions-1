@@ -44,7 +44,7 @@ jobs:
 
   deploy_test:
     needs: [test_job]
-    runs-on: ubunt-latest      
+    runs-on: ubuntu-latest      
     steps:
       - name: checkout    
         uses: actions/checkout@v4
