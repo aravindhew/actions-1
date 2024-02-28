@@ -1,16 +1,41 @@
-name: My First WorkFlow
+name: Definig mutiple jobs
 
 on: push
 
 jobs:
-  first_job:
+  build_job:
     runs-on: ubuntu-latest
     steps:
     - name: checkout
       uses: actions/checkout@v4
 
+    - name: install cowsay
+      run: |
+        sudo apt -y install cowsay -y 
+        cowsay -f dragon "Im the dragon reboirn" >> dragon.txt
+
+  test_job:
+    needs: build_job
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout    
+      uses: actions/checkout@v4
+    
     - name: list and cat
       run: |
         echo "my first github actions from runner"
         ls
-        cat README.md
+        cat dragon.txt
+
+  deploy_test:
+    needs: [test_job]
+    runs-on: ubunt-latest      
+    steps:
+      - name: checkout    
+        uses: actions/checkout@v4
+      - name: list and cat
+        run: |
+          echo "my first github actions from runner"
+          ls
+          cat README.md
+  
