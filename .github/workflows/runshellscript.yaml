@@ -1,4 +1,4 @@
-name: My First WorkFlow
+name: My shell script run
 
 on: push
 
@@ -11,6 +11,5 @@ jobs:
 
     - name: list and cat
       run: |
-        echo "my first github actions from runner"
-        ls
-        cat README.md
+        chmod 755 myscript.sh
+        ./myscript.sh
