@@ -9,7 +9,7 @@ jobs:
     - name: checkout
       uses: actions/checkout@v4
 
-    - name: list and cat
+    - name: change permission
       run: |
-        chmod 755 myscript.sh
-        ./myscript.sh
+        chmod 755 sample.sh
+        ./sample.sh
