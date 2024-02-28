@@ -13,6 +13,11 @@ jobs:
       run: |
         sudo apt -y install cowsay -y 
         cowsay -f dragon "Im the dragon reboirn" >> dragon.txt
+    - name: upload-artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: dragon file
+        path: dragon.txt
 
   test_job:
     needs: build_job
@@ -26,6 +31,13 @@ jobs:
         echo "my first github actions from runner"
         ls
         cat dragon.txt
+    - name: download-artifact
+      uses: actions/download-artifact@v4
+      with:
+          name: dragon file
+
+  
+
 
   deploy_test:
     needs: [test_job]
@@ -38,4 +50,9 @@ jobs:
           echo "my first github actions from runner"
           ls
           cat README.md
-  
+
+      - name: download-artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dragon file
+    
