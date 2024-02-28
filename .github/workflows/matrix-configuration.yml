@@ -14,6 +14,7 @@ jobs:
     steps:
     - name: docker on ubuntu
       run: docker info
+           sleep 120
 
     - name: docker images
       run: docker run ${{ matrix.images }}
