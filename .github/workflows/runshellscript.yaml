@@ -13,3 +13,12 @@ jobs:
       run: |
         chmod 755 sample.sh
         ./sample.sh
+
+
+  gettingthe-contexts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: getting githibcontext
+        env:
+         GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
